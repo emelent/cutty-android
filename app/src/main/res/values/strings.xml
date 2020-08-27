@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Cutty</string>
+    <string name="action_go">Go</string>
+    <string name="hint_paste_url">Youtube video url</string>
+    <string name="text_waking_server">Waking Server</string>
+    <string name="action_trim">Trim</string>
+    <string name="downloading">Downloading</string>
+    <string name="action_download_video">Download Video</string>
+</resources>

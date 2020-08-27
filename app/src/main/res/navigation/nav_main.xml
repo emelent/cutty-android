@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_main"
+    app:startDestination="@id/wakeServerFragment">
+
+    <fragment
+        android:id="@+id/downloadFragment"
+        android:name="io.github.emelent.cutty.fragments.DownloadFragment"
+        android:label="DownloadFragment"
+        tools:layout="@layout/fragment_download" />
+    <fragment
+        android:id="@+id/trimVideoFragment"
+        android:name="io.github.emelent.cutty.fragments.TrimVideoFragment"
+        android:label="TrimVideoFragment"
+        tools:layout="@layout/fragment_trim_video" >
+        <action
+            android:id="@+id/action_trimVideoFragment_to_downloadFragment"
+            app:destination="@id/downloadFragment"
+            app:popUpTo="@id/enterUrlFragment" />
+        <argument
+            android:name="audioUrl"
+            app:argType="string" />
+        <argument
+            android:name="videoUrl"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/enterUrlFragment"
+        android:name="io.github.emelent.cutty.fragments.EnterUrlFragment"
+        android:label="EnterUrlFragment"
+        tools:layout="@layout/fragment_enter_url" >
+        <action
+            android:id="@+id/action_enterUrlFragment_to_trimVideoFragment"
+            app:destination="@id/trimVideoFragment" />
+    </fragment>
+    <action
+        android:id="@+id/action_global_enterUrlFragment"
+        app:destination="@id/enterUrlFragment"
+        app:popUpTo="@id/enterUrlFragment"
+        app:popUpToInclusive="true" />
+    <fragment
+        android:id="@+id/wakeServerFragment"
+        android:name="io.github.emelent.cutty.fragments.WakeServerFragment"
+        tools:layout="@layout/fragment_wake_server"
+        android:label="WakeServerFragment" >
+        <action
+            android:id="@+id/action_wakeServerFragment_to_enterUrlFragment"
+            app:destination="@id/enterUrlFragment" />
+    </fragment>
+</navigation>
